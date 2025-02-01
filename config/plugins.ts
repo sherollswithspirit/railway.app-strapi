@@ -19,4 +19,16 @@ export default ({ env }) => ({
             },
         },
     },
+    // email: {
+    //     config: {
+    //         provider: 'postmark',
+    //         providerOptions: {
+    //             apiKey: env('POSTMARK_API_KEY'),
+    //         },
+    //         settings: {
+    //             defaultFrom: env('POSTMARK_DEFAULT_FROM'),
+    //             defaultReplyTo: env('POSTMARK_DEFAULT_REPLY_TO'),
+    //         },
+    //     },
+    // },
 });
