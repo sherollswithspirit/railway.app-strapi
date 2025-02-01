@@ -395,6 +395,38 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAppointmentAppointment extends Struct.CollectionTypeSchema {
+  collectionName: 'appointments';
+  info: {
+    displayName: 'Appointment';
+    pluralName: 'appointments';
+    singularName: 'appointment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AppointmentStatus: Schema.Attribute.Enumeration<
+      ['Pending', 'Confirmed', 'Cancelled']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::appointment.appointment'
+    > &
+      Schema.Attribute.Private;
+    product: Schema.Attribute.Relation<'oneToOne', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -433,6 +465,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    appointment: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::appointment.appointment'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1001,6 +1037,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::appointment.appointment': ApiAppointmentAppointment;
       'api::home.home': ApiHomeHome;
       'api::product.product': ApiProductProduct;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

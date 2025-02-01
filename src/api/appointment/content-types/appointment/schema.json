@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "Appointment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Date": {
+      "type": "datetime"
+    },
+    "AppointmentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Confirmed",
+        "Cancelled"
+      ]
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product",
+      "inversedBy": "appointment"
+    }
+  }
+}

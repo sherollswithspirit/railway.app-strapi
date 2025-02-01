@@ -36,6 +36,12 @@
     },
     "Stock": {
       "type": "integer"
+    },
+    "appointment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::appointment.appointment",
+      "mappedBy": "product"
     }
   }
 }
