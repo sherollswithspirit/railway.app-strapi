@@ -23,16 +23,16 @@ export default ({ env }) => ({
         config: {
             provider: 'nodemailer',
             providerOptions: {
-                host: env('SMTP_HOST', 'smtp.example.com'),
-                port: env('SMTP_PORT', 587),
+                host: env('EMAIL_SMTP_HOST', 'smtp.example.com'),
+                port: env('EMAIL_SMTP_PORT', 587),
                 auth: {
-                    user: env('SMTP_USERNAME'),
-                    pass: env('SMTP_PASSWORD'),
+                    user: env('EMAIL_SMTP_USER'),
+                    pass: env('EMAIL_SMTP_PASS'),
                 },
             },
             settings: {
-                defaultFrom: 'sherollswithspirit@gmail.com',
-                defaultReplyTo: 'sherollswithspirit@gmail.com',
+                defaultFrom: env('EMAIL_ADDRESS_FROM', 'sherollswithspirit@gmail.com') ,
+                defaultReplyTo: env('EMAIL_ADDRESS_REPLY', 'sherollswithspirit@gmail.com'),
             },
         },
     },
