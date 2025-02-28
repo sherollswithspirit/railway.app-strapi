@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "work_with_mes",
+  "info": {
+    "singularName": "work-with-me",
+    "pluralName": "work-with-mes",
+    "displayName": "Work with Me"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}
